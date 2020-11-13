@@ -1,2 +1,2 @@
 # Cpp
-C++ learn . Udemy course 
+C++ learn . Udemy with Jason Fedin ( by the way amazing teacher !!! )
