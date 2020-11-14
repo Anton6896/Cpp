@@ -36,6 +36,9 @@ void vect_1() {
      * must include it as library
      * methods >>> sort, v.at(pos) , .emplace_back  ..., v1.insert(v1.begin() + 1, data)
      * namespace std::
+     *
+     * if trying to get vec[idx] and it out of index this will crash with no error !
+     * instead use vec.at(idx) -> out of bound error providing !
      * */
 
     vector<int> v1{1, 2, 4, 5, 5, 6, 3, 6};
@@ -44,9 +47,9 @@ void vect_1() {
         cout << i << " ";
     }
     for (int i = 0; i < size(v1); ++i) {
-        if (v1.at(i) % 2 == 0) {
-            v1[i] *= 4;
-        }
+        // just playing with ternary
+        (v1.at(i) % 2 == 0) ? v1.at(i) *= 4 : i;
+        i == 3 ? v1[3] = 100 : i;
     }
     cout << endl;
     for (int i : v1) {
@@ -81,6 +84,13 @@ void vect_1() {
     for (Person const *p: per) {
         cout << "name: " << p->name << endl;
         cout << "age" << p->age << endl;
+    }
+
+    vector<vector<int> *> nes_v;
+    nes_v.emplace_back(&v1);
+    cout << "from nested vector : ";
+    for (int i: *nes_v.at(0)) {
+        cout << i << " ";
     }
 
 
