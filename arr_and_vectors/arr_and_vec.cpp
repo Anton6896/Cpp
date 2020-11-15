@@ -6,16 +6,17 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
 
 void my_arr_1() {
-    int arr_1[5] = {
+    int arr_1[5]{
             1, 2, 3
     };
 
-    int arr_2[] = {
+    int arr_2[]{
             1, 2, 3
     };
 
@@ -72,8 +73,8 @@ void vect_1() {
         string name;
         int age;
     };
-    Person p1 = {"ant", 34};
-    Person p2 = {"kal", 45};
+    Person p1{"ant", 34};
+    Person p2{"kal", 45};
 
     vector<Person *> per; // pointers for Person
     per.emplace_back(&p1);
@@ -92,6 +93,18 @@ void vect_1() {
     for (int i: *nes_v.at(0)) {
         cout << i << " ";
     }
+
+    /**
+     * casting data
+     * */
+
+    double a{10.3};
+    int b{34};
+    cout << "double before casting : " << a << " , " << b << endl;
+//    double ever = (double) b / 50;  // this is old style  (can cast char to int etc not save) old school
+    double ever = static_cast<double>(b) / 50; // new style (save method)
+
+    cout << "after : a " << (int) a << ", ever (double)int / int:" << ever;
 
 
 }
