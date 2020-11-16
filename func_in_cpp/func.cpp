@@ -99,18 +99,19 @@ void func_main() {
 
 /// implement functions
 
+
+double penny_save_rec(int days, double penny) {
+    //todo try to implement this
+    return 0.0;
+}
+
 double penny_save(int days, double penny) {
     double p = penny;
-    for (int i = 0; i < days; ++i) {
+    for (int i = 0; i < days-1; ++i) {
         p *= 2;
     }
     return p;
 }
-
-double penny_save_rec(int days, double penny) {
-
-};
-
 
 unsigned long long fibonachi_rec(unsigned long long n) {
     if (n <= 1) return n;
