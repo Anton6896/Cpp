@@ -12,6 +12,17 @@ void func_util_1();
 
 void c_math_func();
 
+
+///declare prototypes
+unsigned long long factorial_rec(unsigned long long num);
+
+unsigned long long fibonachi_rec(unsigned long long num);
+
+double penny_save(int days, double penny = 0.01);
+
+double penny_save_rec(int days, double penny = 0.01);
+
+
 // add default value at the function param
 void def_tax_rate(double price, double tax = 0.06);
 
@@ -31,28 +42,22 @@ void show_me_list(const int arr[], const int *size);
 void change_me(int &num);
 
 void change_me_2(int num); // nu will not be changed
-
 // const can prevent the data loss and save time and space !
 void look_in_vector(const vector<int> &v);
 
 // static value in func
 void show_static(int num);
 
-
-/// lambda  = inline cpp
+// lambda  = inline cpp
 inline int add_num(int a, int b) {
     return a + b;
 }
 
-int func_main() {
-    func_util_1();
+/// main call
+void func_main() {
+
 //    c_math_func();
 
-
-    return 0;
-}
-
-void func_util_1() {
     cout << "functions : \n";
     def_tax_rate(70);
 
@@ -60,10 +65,12 @@ void func_util_1() {
     add_number(12);
     add_number(22.4);
 
+    cout << "\nlist to function : =========================" << endl;
     int arr1[]{1, 2, 3, 4, 5};
     int size = sizeof(arr1) / sizeof(arr1[0]);
     show_me_list(arr1, &size);
 
+    cout << "\npass reference to function  : =========================" << endl;
     int num = 23, num2 = 23;
     change_me(num); // alies
     change_me_2(num2);
@@ -73,13 +80,49 @@ void func_util_1() {
     vector<int> my_v{1, 2, 3, 4, 5};
     look_in_vector(my_v); // reference
 
+    cout << "\n staic values   : =========================" << endl;
     show_static(30);
     show_static(40);
 
-    /// very fast function straight to binary call without the stack  passing !
-    /// try to avoid them !
-    cout << "\ninline function call : " << add_num(100, 5);
 
+    // try to avoid them ! (price bigger binary file ) , very fast function call
+    cout << "\ninline function call : " << add_num(100, 5) << endl;
+
+    cout << "\nrecursion =================================" << endl;
+    cout << "Factorial : " << factorial_rec(8) << endl; // 40320
+    cout << "Fibonacci : " << fibonachi_rec(30) << endl; // 832040
+    cout << "penny : " << penny_save(18) << endl; // 1310.72 n=18
+
+
+}
+
+
+/// implement functions
+
+double penny_save(int days, double penny) {
+    double p = penny;
+    for (int i = 0; i < days; ++i) {
+        p *= 2;
+    }
+    return p;
+}
+
+double penny_save_rec(int days, double penny) {
+
+};
+
+
+unsigned long long fibonachi_rec(unsigned long long n) {
+    if (n <= 1) return n;
+    return fibonachi_rec(n - 1) + fibonachi_rec(n - 2);
+}
+
+unsigned long long factorial_rec(unsigned long long num) {
+    //super big number
+    if (num == 0) {
+        return 1;
+    }
+    return num * factorial_rec(num - 1);
 }
 
 void show_static(int num) {
@@ -104,7 +147,6 @@ void change_me(int &num) {
 void change_me_2(int num) {
     num = 50;
 }
-
 
 void show_me_list(const int arr[], const int *size) {
     // arr already pointer to fist element ar list
