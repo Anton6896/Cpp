@@ -13,7 +13,7 @@ using namespace std;
 
 int main() {
     auto start = steady_clock::now();
-    cout << "main ->> \n";
+
 
     /// my functions
 //    my_first_main();
@@ -24,7 +24,7 @@ int main() {
 
 
 
-    cout << "\n<<-- end main";
+
     auto end = steady_clock::now();
     auto diff = end - start;
     cout << "\n\nprogram duration : " << chrono::duration<double, milli>(diff).count() << " ms" << endl;
