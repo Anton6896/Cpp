@@ -9,6 +9,7 @@ using namespace std;
 #include "flow/my_fl.cpp"
 #include "string_my/str_my.cpp"
 #include "func_in_cpp/func.cpp"
+#include "pointer_my/pointer_main.cpp"
 
 
 int main() {
@@ -20,8 +21,8 @@ int main() {
 //    av_main();
 //    fl_main();
 //    str_main();
-    func_main();
-
+//    func_main();
+    point_main();
 
 
 
