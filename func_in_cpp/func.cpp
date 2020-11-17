@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <numeric>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,6 +16,9 @@ void c_math_func();
 
 
 ///declare prototypes
+
+void my_challenge(vector<int> &v);
+
 unsigned long long factorial_rec(unsigned long long num);
 
 unsigned long long fibonachi_rec(unsigned long long num);
@@ -92,22 +97,67 @@ void func_main() {
     cout << "Factorial : " << factorial_rec(8) << endl; // 40320
     cout << "Fibonacci : " << fibonachi_rec(30) << endl; // 832040
     cout << "penny : " << penny_save(18) << endl; // 1310.72 n=18
+    cout << "penny : " << penny_save_rec(18) << endl; // 1310.72 n=18
 
-
+    cout << "\nfunction challenge :\n";
+    // get vector address
+    my_challenge(my_v);
 }
 
 
 /// implement functions
 
+void my_challenge(vector<int> &v) {
+    // ask user what to do with the vector (args reference of vector for manipulation )
+    cout << "hello. please chose one of the options bellow : \n" <<
+         "1. print vector \n2. add number \n3. display mean from numbers \n" <<
+         "4. display smallest num \n5. quite ";
+    double mynum = accumulate(v.begin(), v.end(), 0.0 / v.size());
+    int choice = 0;
+    do {
+        cout << "\nenter your choice :";
+        cin >> choice;
+    } while (choice < 0 || choice > 5);
+
+    switch (choice) {
+        case 1:
+            for (auto i : v) {
+                cout << i << " ";
+            }
+            break;
+
+        case 2:
+            int n;
+            cout << "\nenter number :";
+            cin >> n;
+            cout << "number: " << n << " , added to end of list .";
+            v.emplace_back(n);
+            break;
+
+        case 3:
+            // get mean from list
+            cout << "The average is : " << mynum << endl;
+            break;
+
+        case 4:
+            cout << "smallest num in list  :" << *min_element(v.begin(), v.end()) << endl;
+            break;
+        case 5:
+            cout << " thx and bay ... ";
+            break;
+        default:
+            break;
+    }
+}
 
 double penny_save_rec(int days, double penny) {
-    //todo try to implement this
-    return 0.0;
+    if (days == 1) return penny;
+    return penny_save_rec(days - 1, penny * 2);
 }
 
 double penny_save(int days, double penny) {
     double p = penny;
-    for (int i = 0; i < days-1; ++i) {
+    for (int i = 0; i < days - 1; ++i) {
         p *= 2;
     }
     return p;
