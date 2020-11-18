@@ -20,7 +20,7 @@ int main() {
 //    av_main();
 //    fl_main();
 //    str_main();
-    func_main();
+//    func_main();
 
 
 
