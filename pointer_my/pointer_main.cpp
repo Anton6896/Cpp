@@ -8,6 +8,9 @@
 using namespace std;
 
 /// declaration
+int *apply_all(int arr1[], int l1, int arr2[], int l2);
+
+
 int *create_arr(size_t size, int value = 0);
 
 int *large_int(int *a, int *b);
@@ -118,11 +121,51 @@ void point_main() {
     }
 
     delete[]arr;  // release space !!!!
-    cout << endl;
+
+    cout << "\n challenge section ====================" << endl;
+    /**
+     * crete function that get two arrays of integers
+     * and return arr3 pointer  (arr1 + arr2)
+     * */
+    int arr1[]{1, 2, 3};
+    int arr2[]{4, 5, 6};
+
+    int l1 = (sizeof(arr1) / sizeof(arr1[0]));
+    int l2 = (sizeof(arr2) / sizeof(arr2[0]));
+
+    int *arr3{nullptr};
+    arr3 = apply_all(arr1, l1, arr2, l2);
+    for (int i = 0; i < (l1 * l2); ++i) {
+        cout << arr3[i] << " ";
+    }
+    delete[] arr3; // release memory
+
 
 }
 
 /// init
+
+int *apply_all(int arr1[], int l1, int arr2[], int l2) {
+    int *arr3{nullptr};
+    int size = l1 * l2;
+    int position = 0;
+
+    try {
+        arr3 = new int[size]; // allocate space
+
+        // fill array
+        for (int i = 0; i < l1; ++i) {
+            for (int j = 0; j < l2; ++j) {
+                arr3[position++] = arr1[i] * arr2[j];
+            }
+        }
+    } catch (exception &e) {
+        cout << "can't apply space for new array ...";
+    }
+    return arr3;
+}
+
+
 int *create_arr(size_t size, int value) {
     //    function return pointer to space that was allocated and filled with values
     //    this is not be a local variable !!! ( do not return local variable pointer )
