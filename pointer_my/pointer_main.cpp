@@ -8,7 +8,7 @@
 using namespace std;
 
 /// declaration
-int *create_arr(size_t size, int value);
+int *create_arr(size_t size, int value = 0);
 
 int *large_int(int *a, int *b);
 
@@ -101,20 +101,23 @@ void point_main() {
     vector<string> myv{"hello", "world"};
     cout << "\nvector before func :" << myv.at(0) + " " + myv.at(1) << endl;
     display(&myv);
-    cout << "vector after func :" << myv.at(0) + " " + myv.at(1) << endl;
+
 
     int a{10}, b{20};
+    int *large_num{nullptr};
+    large_num = large_int(&a, &b);
     cout << "address b>a : " << &b << endl;
-    cout << "check address of bigger num  : " << large_int(&a, &b) << endl;
+    cout << "10 ? 20 ...  : " << *large_num << endl;
 
-    // return array space
-    int *arr = create_arr(1000, 1);
+    // return array space ( dynamic allocated space )
+    int *arr = create_arr(50);
     cout << "\tarr address : " << arr << endl;
+
     for (int i = 0; i < 3; ++i) {
         cout << arr[i] << " ";
     }
-    // release space !!!!
-    delete[]arr;
+
+    delete[]arr;  // release space !!!!
     cout << endl;
 
 }
@@ -123,12 +126,25 @@ void point_main() {
 int *create_arr(size_t size, int value) {
     //    function return pointer to space that was allocated and filled with values
     //    this is not be a local variable !!! ( do not return local variable pointer )
-    int *storage = new int[size]; // allocate space
-    for (int i = 0; i < size; ++i) {
-        *(storage + i) = value;
+
+    // create pointer
+    int *storage = nullptr;
+
+    try {
+        // allocate space
+        storage = new int[size];
+        // fill space with values
+        for (int i = 0; i < size; ++i) {
+            *(storage + i) = value;
+        }
+        cout << "\n\tstorage address : " << storage << endl;
+        return storage; // allocated filled space
+
+    } catch (const std::exception &e) {
+        cout << "some bew int[] pointer allocation problem ... " << endl;
     }
-    cout << "\n\tfunction address : " << storage << endl;
-    return storage; // space address on the heap
+
+    return nullptr;
 }
 
 int *large_int(int *a, int *b) {
@@ -142,14 +158,15 @@ void double_data(int *pnum) {
 void display(vector<string> *v) {
     // convert strings in vector to upper case
     for (auto &i : *v) { // '&' reference in vector data
-        cout << &i << " " + i << endl;
+        cout << &i << " " + i << endl; // 'i' is alias for vector obj
         string st;
         for (auto c:i) {
             st.push_back((char) toupper(c));
         }
         i = st; // change reference !
-
     }
+
+    cout << "vector after : " << v->at(0) << " " << v->at(1) << endl;
 }
 
 
