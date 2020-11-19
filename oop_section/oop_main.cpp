@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <vector>
+#include "my_cl.cpp"
 
 using namespace std;
 
@@ -11,14 +12,9 @@ using namespace std;
 
 
 
-
-
-
 /// main ________________________________________________________
 void oop_main() {
     cout << "oop main function start : " << endl;
-
-
 
 
 }
