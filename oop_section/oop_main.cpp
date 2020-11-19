@@ -1,9 +1,14 @@
-//
-// Created by User on 11/19/2020.
-//
+/**
+ * declaration and implementation in cpp is in different files
+ * from main.cpp including the declaration file .h files that
+ * pointing to the implementation
+ *
+ * */
+
 #include <iostream>
 #include <vector>
-#include "my_cl.cpp"
+#include "my_classes/Account.h"
+
 
 using namespace std;
 
@@ -15,6 +20,9 @@ using namespace std;
 /// main ________________________________________________________
 void oop_main() {
     cout << "oop main function start : " << endl;
+
+    /*
+
 
     MyPerson per1, per2;
     vector<MyPerson> person_vec{per1};  // with objects
@@ -34,15 +42,6 @@ void oop_main() {
 
     // nested class access
     cout << endl;
-    auto *per2_ptr = new MyPerson;
-    per2_ptr->name = "per2 name";
-    per2_ptr->age = 34;
-    per2_ptr->acc_prt->deposit(1000);
-    per2_ptr->acc_prt->deposit(200);
-    per2_ptr->acc_prt->withdraw(100);
-    per2_ptr->speak();
-
-    cout << endl;
     auto *per3_ptr = new MyPerson;
     per3_ptr->name = "per3 name";
     per3_ptr->age = 20;
@@ -50,9 +49,13 @@ void oop_main() {
     per3_ptr->acc_prt->deposit(200);
     per3_ptr->acc_prt->withdraw(100);
     per3_ptr->speak();
-
-    delete per2_ptr;
     delete per3_ptr;
+
+    */
+
+
+
+
 
     cout << "\nok ..";
 }

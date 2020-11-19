@@ -11,7 +11,7 @@ using namespace std;
 int counter = 1;
 
 class MyAccount {
-//    MyPerson *person = new MyPerson; // connect to other class (insane)
+private:
     int id = counter++;
     double balance = 0.0;
 
@@ -21,11 +21,11 @@ public:
         return true;
     }
 
-    int get_id() {
+    int get_id() const {
         return id;
     }
 
-    double get_balance() {
+    double get_balance() const {
         return balance;
     };
 
@@ -45,7 +45,7 @@ class MyPerson {
 public:
     string name = "name";
     int age = 10;
-    MyAccount *acc_prt = new MyAccount;
+    MyAccount *acc_prt = new MyAccount; // connect to other class (insane)
 
 
     void speak() const {
@@ -54,8 +54,6 @@ public:
         cout << " my balance is " << acc_prt->get_balance() << endl;
         cout << " my id is " << acc_prt->get_id() << endl;
     }
-
-
 };
 
 
