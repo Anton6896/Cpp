@@ -7,7 +7,12 @@
 
 #include <iostream>
 #include <vector>
+
+// this how to create and implement classes
 #include "my_classes/Account.h"
+
+// this is bad practice in cpp to create and use classes
+//#include "my_classes/my_cl.cpp"
 
 
 using namespace std;
@@ -52,7 +57,6 @@ void oop_main() {
     delete per3_ptr;
 
     */
-
 
 
 
