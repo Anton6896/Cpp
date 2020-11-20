@@ -9,6 +9,7 @@
 #include <vector>
 #include <typeinfo>
 
+
 using namespace std;
 
 
@@ -26,14 +27,14 @@ void my_msg(string *str);
 
 int str_main() {
 //    str_u1();
-//    str_2();
+    str_2();
 
-    string msg;
-    cout << "\nenter name for encryption : \n";
-    cin >> msg;
-    cout << "after encryption : " << encrypt_my(&msg) << endl;
-    msg = encrypt_my(&msg);
-    cout << "after decription : " << decript_my(&msg) << endl;
+//    string msg;
+//    cout << "\nenter name for encryption : \n";
+//    cin >> msg;
+//    cout << "after encryption : " << encrypt_my(&msg) << endl;
+//    msg = encrypt_my(&msg);
+//    cout << "after decription : " << decript_my(&msg) << endl;
 
 //    string my_str = "asdf";
 //    my_msg(&my_str);
@@ -111,12 +112,11 @@ void str_2() {
 
     cout << "\n";
     string s11 = "122312334324333123233";
-    for (int i = 0; i < size(s11) - 1; ++i) {
+    for (int i = 0; i < s11.size() - 1; ++i) {
         if (s11[i] != '3') {
             cout << s11[i] << " ";
         }
     }
-
 
 //    find word in string
     string s12 = "new words for find words";
@@ -133,7 +133,7 @@ string encrypt_my(string *msg) {
     // stupid enctiptor add +1 to any char in string asii table
     string total;
 
-    for (int i = 0; i < size(*msg); ++i) {
+    for (int i = 0; i < (*msg).size(); ++i) {
         // must be some complicated func to encrypt the value of this char
         total.push_back(static_cast<char>((static_cast<int>( msg->at(i) )) + 1));
     }
@@ -144,7 +144,7 @@ string decript_my(string *msg) {
     // from encrypt_my decripting -1 to asii table
     string total;
 
-    for (int i = 0; i < size(*msg); ++i) {
+    for (int i = 0; i < (*msg).size(); ++i) {
         // get function logic from encrypt_my
         total.push_back(static_cast<char>(static_cast<int>(msg->at(i)) - 1));
     }
@@ -152,7 +152,7 @@ string decript_my(string *msg) {
 };
 
 void my_msg(string *str) {
-    for (int i = 0; i < size(*str); ++i) {
+    for (int i = 0; i < (*str).size(); ++i) {
         cout << str->at(i) << ". ";
     }
 

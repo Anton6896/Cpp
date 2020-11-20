@@ -8,7 +8,10 @@
 using namespace std;
 
 /// declaration
-int *create_arr(size_t size, int value);
+int *apply_all(int arr1[], int l1, int arr2[], int l2);
+
+
+int *create_arr(size_t size, int value = 0);
 
 int *large_int(int *a, int *b);
 
@@ -101,34 +104,90 @@ void point_main() {
     vector<string> myv{"hello", "world"};
     cout << "\nvector before func :" << myv.at(0) + " " + myv.at(1) << endl;
     display(&myv);
-    cout << "vector after func :" << myv.at(0) + " " + myv.at(1) << endl;
+
 
     int a{10}, b{20};
+    int *large_num{nullptr};
+    large_num = large_int(&a, &b);
     cout << "address b>a : " << &b << endl;
-    cout << "check address of bigger num  : " << large_int(&a, &b) << endl;
+    cout << "10 ? 20 ...  : " << *large_num << endl;
 
-    // return array space
-    int *arr = create_arr(1000, 1);
+    // return array space ( dynamic allocated space )
+    int *arr = create_arr(50);
     cout << "\tarr address : " << arr << endl;
+
     for (int i = 0; i < 3; ++i) {
         cout << arr[i] << " ";
     }
-    // release space !!!!
-    delete[]arr;
-    cout << endl;
+
+    delete[]arr;  // release space !!!!
+
+    cout << "\n challenge section ====================" << endl;
+    /**
+     * crete function that get two arrays of integers
+     * and return arr3 pointer  (arr1 + arr2)
+     * */
+    int arr1[]{1, 2, 3};
+    int arr2[]{4, 5, 6};
+
+    int l1 = (sizeof(arr1) / sizeof(arr1[0]));
+    int l2 = (sizeof(arr2) / sizeof(arr2[0]));
+
+    int *arr3{nullptr};
+    arr3 = apply_all(arr1, l1, arr2, l2);
+    for (int i = 0; i < (l1 * l2); ++i) {
+        cout << arr3[i] << " ";
+    }
+    delete[] arr3; // release memory
+
 
 }
 
 /// init
+
+int *apply_all(int arr1[], int l1, int arr2[], int l2) {
+    int *arr3{nullptr};
+    int size = l1 * l2;
+    int position = 0;
+
+    try {
+        arr3 = new int[size]; // allocate space
+
+        // fill array
+        for (int i = 0; i < l1; ++i) {
+            for (int j = 0; j < l2; ++j) {
+                arr3[position++] = arr1[i] * arr2[j];
+            }
+        }
+    } catch (exception &e) {
+        cout << "can't apply space for new array ...";
+    }
+    return arr3;
+}
+
+
 int *create_arr(size_t size, int value) {
     //    function return pointer to space that was allocated and filled with values
     //    this is not be a local variable !!! ( do not return local variable pointer )
-    int *storage = new int[size]; // allocate space
-    for (int i = 0; i < size; ++i) {
-        *(storage + i) = value;
+
+    // create pointer
+    int *storage = nullptr;
+
+    try {
+        // allocate space
+        storage = new int[size];
+        // fill space with values
+        for (int i = 0; i < size; ++i) {
+            *(storage + i) = value;
+        }
+        cout << "\n\tstorage address : " << storage << endl;
+        return storage; // allocated filled space
+
+    } catch (const std::exception &e) {
+        cout << "some bew int[] pointer allocation problem ... " << endl;
     }
-    cout << "\n\tfunction address : " << storage << endl;
-    return storage; // space address on the heap
+
+    return nullptr;
 }
 
 int *large_int(int *a, int *b) {
@@ -142,14 +201,15 @@ void double_data(int *pnum) {
 void display(vector<string> *v) {
     // convert strings in vector to upper case
     for (auto &i : *v) { // '&' reference in vector data
-        cout << &i << " " + i << endl;
+        cout << &i << " " + i << endl; // 'i' is alias for vector obj
         string st;
         for (auto c:i) {
             st.push_back((char) toupper(c));
         }
         i = st; // change reference !
-
     }
+
+    cout << "vector after : " << v->at(0) << " " << v->at(1) << endl;
 }
 
 

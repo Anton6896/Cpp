@@ -30,7 +30,7 @@ void my_arr_1() {
 
 }
 
-void vect_1() {
+void my_vect_1() {
     /**
      * dynamic array ( vector object )
      * must include it as library
@@ -111,6 +111,6 @@ void vect_1() {
 
 int av_main() {
 //    my_arr_1();
-    vect_1();
+    my_vect_1();
     return 0;
 }
