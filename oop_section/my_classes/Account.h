@@ -10,6 +10,7 @@
 
 static int counter = 1;
 
+
 class Account {  /// declare class
 private:
     double balance = 0.0;
@@ -21,9 +22,7 @@ public:
     }
 
     // constructor init list , this is the right way to create !
-    Account(string n)
-    // init
-            : name{std::move(n)}, balance{0.0} {
+    Account(string n) : name{std::move(n)}, balance{0.0} {
         // body
         cout << "account created : " << id << endl;
         counter++;
@@ -54,7 +53,7 @@ public:
         }
     }
 
-
+//    void show();
 
     ~Account() {
         cout << "account: " << id << " - destroyed" << endl;

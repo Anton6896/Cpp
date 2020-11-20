@@ -14,6 +14,7 @@ private:
     int age;
     bool status;
     int id = player_counter;
+    double balance;
 public:
 
     /// you can use the bigger constructor for delegation
@@ -35,8 +36,20 @@ public:
         cout << "status : " << (status ? "is ok " : "is not ok") << endl;
     }
 
+    void set_balance(double sum);
+
+    [[nodiscard]] double get_balance() const;
+
 
     ~Player() {
         player_counter--;
     }
 };
+
+void Player::set_balance(double sum) {
+    balance += sum;
+}
+
+double Player::get_balance() const {
+    return balance;
+}

@@ -8,15 +8,12 @@
 #include <iostream>
 #include <vector>
 
+
 /// declare _____________________________________________________
 // this how to create and implement classes cpp
 #include "my_classes/Account.h"
 
-
-
-// this is bad practice in cpp to create and use classes
-// but this method is working ok
-//#include "my_classes/my_cl.cpp"
+//#include "my_classes/my_cl.cpp"  // this is bad practice in cpp to create and use classes
 #include "my_classes/Player.cpp"
 
 using namespace std;
@@ -65,6 +62,7 @@ void oop_main() {
         }
         acc1.set_name("other.");
         cout << "acc1 name: " << acc1.get_name() << ", balance: " << acc1.get_ballance() << endl;
+//        acc1.show();
         // creating scope for force the destructor call
     }
 
@@ -80,6 +78,10 @@ void oop_main() {
     pl1.speak();
     pl2.speak();
     pl2.status_check();
+    pl2.set_balance(400);
+    cout << "balance " << pl2.get_balance() << endl;
+
+
 
 
     cout << "\nok ..\n";
