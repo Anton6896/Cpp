@@ -8,18 +8,18 @@
 #include <iostream>
 #include <vector>
 
-// this how to create and implement classes
+/// declare _____________________________________________________
+// this how to create and implement classes cpp
 #include "my_classes/Account.h"
 
-// this is bad practice in cpp to create and use classes
-//#include "my_classes/my_cl.cpp"
 
+
+// this is bad practice in cpp to create and use classes
+// but this method is working ok
+//#include "my_classes/my_cl.cpp"
+#include "my_classes/Player.cpp"
 
 using namespace std;
-
-
-/// declare _____________________________________________________
-// my_cl.cpp
 
 
 /// main ________________________________________________________
@@ -27,8 +27,6 @@ void oop_main() {
     cout << "oop main function start : " << endl;
 
     /*
-
-
     MyPerson per1, per2;
     vector<MyPerson> person_vec{per1};  // with objects
     person_vec.emplace_back(per2);
@@ -57,11 +55,34 @@ void oop_main() {
     delete per3_ptr;
 
     */
+    {
+        Account acc1("acc1");
+        acc1.set_balance(2000);
+        if (acc1.withdraw_1(200)) {
+            cout << "withdraw ok ..\n";
+        } else {
+            cout << "withdraw noy ok ...\n";
+        }
+        acc1.set_name("other.");
+        cout << "acc1 name: " << acc1.get_name() << ", balance: " << acc1.get_ballance() << endl;
+        // creating scope for force the destructor call
+    }
+
+    cout << endl;
+    auto *acc2 = new Account("acc2");
+    acc2->set_balance(1000);
+    acc2->show();
+    delete acc2;
 
 
+    cout << "\n";
+    Player pl1, pl2("mark", 34, true);
+    pl1.speak();
+    pl2.speak();
+    pl2.status_check();
 
 
-    cout << "\nok ..";
+    cout << "\nok ..\n";
 }
 
 
