@@ -71,7 +71,7 @@ void oop_main() {
     cout << endl;
     auto *acc2 = new Account("acc2");
     acc2->set_balance(1000);
-    acc2->show();
+
     delete acc2;
 
 

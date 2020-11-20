@@ -54,7 +54,7 @@ public:
         }
     }
 
-    void show();
+
 
     ~Account() {
         cout << "account: " << id << " - destroyed" << endl;
