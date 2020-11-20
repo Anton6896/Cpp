@@ -3,29 +3,32 @@
 //
 #include <iostream>
 #include <string>
+#include <utility>
 
 using namespace std;
 
 static int player_counter = 1;
 
 class Player {
+
 private:
     std::string name;
     int age;
     bool status;
     int id = player_counter;
-    double balance;
-public:
+    double balance{};
 
-    /// you can use the bigger constructor for delegation
-    Player(string name_, int age, bool boo) :
+public:
+    // you can use the bigger constructor for delegation :
+    Player(string name_, int age = 0, bool boo = false) :
             name{std::move(name_)}, age{age}, status{boo} {
         cout << "player created , id :" << id << endl;
         player_counter++;
     }
 
-    // Delegating constructor
-    Player() : Player{"none", 0, 0} {
+    // Delegating constructor from bigger one ^
+    Player() : Player{"none", 0, false} {
+        // !!! will execute the delegation from constructor body !!!
     }
 
     void speak() {

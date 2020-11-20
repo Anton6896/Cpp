@@ -15,6 +15,7 @@
 
 //#include "my_classes/my_cl.cpp"  // this is bad practice in cpp to create and use classes
 #include "my_classes/Player.cpp"
+#include "copy_constructor.cpp"
 
 using namespace std;
 
@@ -81,7 +82,8 @@ void oop_main() {
     pl2.set_balance(400);
     cout << "balance " << pl2.get_balance() << endl;
 
-
+    cout << "\ncopy constructor------------------------------ \n";
+    Car car1("car 1"), car2("car 2", 43);
 
 
     cout << "\nok ..\n";

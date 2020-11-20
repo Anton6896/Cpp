@@ -1,6 +1,10 @@
 //
 // Created by User on 11/19/2020.
-/** in h file you declare all class data and his attribute functions */
+/** in h file you declare all class data and his attribute functions
+ *
+ * when using this you must compile 2 .cpp files at same time
+ * like (>>> g++ main.cpp Account.cpp)
+ * */
 
 #ifndef DEMO_ACCOUNT_H
 #define DEMO_ACCOUNT_H
