@@ -19,11 +19,13 @@
 
 using namespace std;
 
+void display_car(Car c);
 
 /// main ________________________________________________________
 void oop_main() {
     cout << "oop main function start : " << endl;
 
+    cout << "\ncrete use classes ------------------------------ \n";
     /*
     MyPerson per1, per2;
     vector<MyPerson> person_vec{per1};  // with objects
@@ -63,14 +65,12 @@ void oop_main() {
         }
         acc1.set_name("other.");
         cout << "acc1 name: " << acc1.get_name() << ", balance: " << acc1.get_ballance() << endl;
-//        acc1.show();
         // creating scope for force the destructor call
     }
 
     cout << endl;
     auto *acc2 = new Account("acc2");
     acc2->set_balance(1000);
-
     delete acc2;
 
 
@@ -83,11 +83,57 @@ void oop_main() {
     cout << "balance " << pl2.get_balance() << endl;
 
     cout << "\ncopy constructor------------------------------ \n";
-    Car car1("car 1"), car2("car 2", 43);
+//    Car car1("car 1"), car2("car 2", 43);
+//    Car *car3 = new Car;
+//    car3->set_car_name("car3");
+//    car3->set_car_age(34);
+//    display_car(*car3);
+//    delete car3;
+
+    cout << "\ndeep copy constructor------------------------------ \n";
+    // always use the deep copy to prevent the errors
+    Deep de1{100};
+    de1.show_data_address();
+    de1.set_data_value(1000);
+
+    Deep obj2{de1};
+    obj2.show_data_address();
+    obj2.set_data_value(500);
+
+    cout << "\n move constructor ------------------------------ \n";
+    // using L_value
+//    Move_my m1{100};
+//    m1.show_address();
+//    m1.set_data(20);
+//    Move_my m2{m1};
+//    m2.show_address();
+
+    // using move address R_value
+//    vector<Move_my> vm;
+//    vm.emplace_back(Move_my(10));
+//    vm.emplace_back(Move_my(20));
+//    vm.emplace_back(Move_my(30));
+//    vm.emplace_back(Move_my(40));
+
+    cout << "\n const check ------------------------------ \n";
+    // using the const method in classes ( on car obj )
+    const Car c1("car1", 23);
+    cout << "car name and age : " << c1.get_car_name() << " , " << c1.get_car_age() << endl;
+    // but you can not set any thing because this is const obj === c1
+
+    Car c2;
+    c2.set_car_name("name 2").set_car_age(34);
+    cout << "car name and age : " << c2.get_car_name() << " , " << c2.get_car_age() << endl;
 
 
-    cout << "\nok ..\n";
+
+
 }
 
 
 /// init ________________________________________________________
+void display_car(Car c) {
+    // call to copy constructor
+    cout << "age : " << c.get_car_age() << ", id : " << c.get_car_id() << " \n";
+    cout << "name : " << c.get_car_name() << " \n";
+}
