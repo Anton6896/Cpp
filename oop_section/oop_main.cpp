@@ -125,6 +125,8 @@ void oop_main() {
     c2.set_car_name("name 2").set_car_age(34);
     cout << "car name and age : " << c2.get_car_name() << " , " << c2.get_car_age() << endl;
 
+    cout << "\n static data in classes ------------------------------ \n";
+
 
 
 

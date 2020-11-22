@@ -4,6 +4,9 @@
 
 using namespace std;
 
+
+// for good work you nee to declare the counter
+// at the '.h ' file and ini it at class that belongs to
 static int car_counter = 1;
 
 class Car {
@@ -14,6 +17,7 @@ private:
 
 public:
     explicit Car(string name_ = "name", int age_ = 0) : name{std::move(name_)}, age{age_} {
+
         cout << "car id :" << id << " created <. \n";
         ++car_counter;
     }
@@ -107,17 +111,17 @@ public:
         cout << "data address : " << &data << endl;
     }
 
-    // constructor
+    /// constructor
     explicit Move_my(int d = 0) : data{new int{d}} {
         cout << "reg constructor for : " << d << endl;
     }
 
-    // copy constructor L_value
-//    Move_my(const Move_my &other) : Move_my{*other.data} {
-//        cout << "copy for L_value, deep copy : " << *data << endl;
-//    }
+    /// copy constructor L_value (deep copy)
+    Move_my(const Move_my &other) : Move_my{*other.data} {
+        cout << "copy for L_value, deep copy : " << *data << endl;
+    }
 
-    // copy constructor R_value
+    /// copy constructor R_value (moving obj)
     Move_my(Move_my &&other) : data{other.data} {
         other.data = nullptr;
         cout << "copy for R_value, moving resource : " << *data << endl;
@@ -133,6 +137,7 @@ public:
 
         delete data;
     }
+
 
 };
 
