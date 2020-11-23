@@ -16,6 +16,8 @@
 //#include "my_classes/my_cl.cpp"  // this is bad practice in cpp to create and use classes
 #include "my_classes/Player.cpp"
 #include "copy_constructor.cpp"
+#include "my_classes/project_oop.cpp"
+
 
 using namespace std;
 
@@ -117,15 +119,24 @@ void oop_main() {
 
     cout << "\n const check ------------------------------ \n";
     // using the const method in classes ( on car obj )
-    const Car c1("car1", 23);
-    cout << "car name and age : " << c1.get_car_name() << " , " << c1.get_car_age() << endl;
+//    const Car c1("car1", 23);
+//    cout << "car name and age : " << c1.get_car_name() << " , " << c1.get_car_age() << endl;
     // but you can not set any thing because this is const obj === c1
 
-    Car c2;
-    c2.set_car_name("name 2").set_car_age(34);
-    cout << "car name and age : " << c2.get_car_name() << " , " << c2.get_car_age() << endl;
+//    Car c2;
+//    c2.set_car_name("name 2").set_car_age(34);
+//    cout << "car name and age : " << c2.get_car_name() << " , " << c2.get_car_age() << endl;
 
-    cout << "\n static data in classes ------------------------------ \n";
+
+
+    cout << "\n finish project output ------------------------------ \n";
+
+    Movies m1;
+    m1.add_movie();
+    m1.add_movie();
+    m1.show_all();
+
+
 
 
 
