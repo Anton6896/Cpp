@@ -4,14 +4,14 @@
 using namespace std::chrono;
 using namespace std;
 
-#include "first/hello.cpp"
-#include "arr_and_vectors/arr_and_vec.cpp"
-#include "flow/my_fl.cpp"
-#include "string_my/str_my.cpp"
-#include "func_in_cpp/func.cpp"
-#include "pointer_my/pointer_main.cpp"
-#include "oop_section/oop_main.cpp"
-
+//#include "first/hello.cpp"
+//#include "arr_and_vectors/arr_and_vec.cpp"
+//#include "flow/my_fl.cpp"
+//#include "string_my/str_my.cpp"
+//#include "func_in_cpp/func.cpp"
+//#include "pointer_my/pointer_main.cpp"
+//#include "oop_section/oop_main.cpp"
+#include "Inheritance_m/in_main.cpp"
 
 
 int main() {
@@ -25,11 +25,9 @@ int main() {
 //    str_main();
 //    func_main();
 //    point_main();
-    oop_main();
-
-
-
-
+//    oop_main();
+//    oo_main_my();
+    in_main();
 
 
     auto end = steady_clock::now();
