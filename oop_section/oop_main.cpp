@@ -134,6 +134,7 @@ void oop_main() {
     Movies m1;
     m1.add_movie();
     m1.add_movie();
+    m1.add_movie();
     m1.show_all();
 
 
