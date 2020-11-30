@@ -28,8 +28,14 @@ public:
 
     const char *get_str() const;
 
-    // overload the 'operator='
+    // 'operator=' // copy assignment
     OperatorOverload_my &operator=(const OperatorOverload_my &other);
+
+    // move operator
+    OperatorOverload_my &operator=(OperatorOverload_my &&other);
+
+    // move constructor
+    OperatorOverload_my ( OperatorOverload_my &&other);
 
 };
 

@@ -54,14 +54,20 @@ int main() {
 void operator_overload_my_tester() {
     cout << " ----------- operator ----------- : " << endl;
 
-    OperatorOverload_my o1{"new one "}, o2 , o3{o1};
-    o1.display();
-    o2.display();
-    o3.display();
+//    OperatorOverload_my o1{"new one "}, o2, o3{o1};
+//    o2.display();
+//    o2 = o1;
+//    o2.display();
 
-    o2 = o1;
-    o2.display();
+    // using move assignment
+    cout << "\nmove assisment : " << endl;
+    OperatorOverload_my o4;
+    o4 = OperatorOverload_my("nest");
+    o4.display();
 
 
+
+
+    cout << " \n\n";
 }
 
