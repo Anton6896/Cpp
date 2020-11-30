@@ -9,9 +9,28 @@
 class OperatorOverload_my {
 private:
     static int counter;
-    std::string name;
+    char *str; // C style string
+    int id;
 public:
-    OperatorOverload_my(std::string name_="no name");
+    OperatorOverload_my();
+
+    explicit OperatorOverload_my(const char *s);
+
+    OperatorOverload_my(const OperatorOverload_my &other);
+
+    ~OperatorOverload_my();
+
+    void display() const;
+
+    int get_length() const;
+
+    int get_id() const;
+
+    const char *get_str() const;
+
+    // overload the 'operator='
+    OperatorOverload_my &operator=(const OperatorOverload_my &other);
+
 };
 
 

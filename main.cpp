@@ -52,7 +52,16 @@ int main() {
 }
 
 void operator_overload_my_tester() {
-    OperatorOverload_my o1, o2;
+    cout << " ----------- operator ----------- : " << endl;
+
+    OperatorOverload_my o1{"new one "}, o2 , o3{o1};
+    o1.display();
+    o2.display();
+    o3.display();
+
+    o2 = o1;
+    o2.display();
+
 
 }
 
