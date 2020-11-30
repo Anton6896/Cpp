@@ -52,7 +52,7 @@ int main() {
 }
 
 void operator_overload_my_tester() {
-    OperatorOverload_my o1;
+    OperatorOverload_my o1, o2;
 
 }
 
