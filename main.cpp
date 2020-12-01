@@ -19,18 +19,20 @@ using namespace std;
 /// this is how it must to be done
 // in this case must provide the main.cpp and
 // the your classes.cpp to run together in CMakeList
+
 #include "Operator_overload/OperatorOverload_my.h"
+#include "Inheritance_m/Person.h"
 
 /// declare testers
-void operator_overload_my_tester();
+//void operator_overload_my_tester();
+void inheritance_tester();
 
 
 /// entry point
 int main() {
     auto start = steady_clock::now();
-
-
-    /// my functions
+    {
+/// my functions
 //    my_first_main();
 //    av_main();
 //    fl_main();
@@ -40,14 +42,18 @@ int main() {
 //    oop_main();
 //    oo_main_my();
 //    in_main();
+    }
 
 
-    operator_overload_my_tester();
+//    operator_overload_my_tester();
+    inheritance_tester();
 
 
     auto end = steady_clock::now();
     auto diff = end - start;
-    cout << "\n\nprogram duration : " << chrono::duration<double, milli>(diff).count() << " ms" << endl;
+    cout << "\n\nprogram duration : " <<
+         chrono::duration<double, milli>(diff).count() <<
+         " ms" << endl;
     return 0;
 }
 
@@ -66,8 +72,14 @@ void operator_overload_my_tester() {
     o4.display();
 
 
-
-
     cout << " \n\n";
+}
+
+void inheritance_tester() {
+    cout << "________________  inheritance tester _________________" << endl;
+    Person p1("per1", 34, 2345, 400), p2;
+    p1.show_self();
+    p2.show_self();
+
 }
 

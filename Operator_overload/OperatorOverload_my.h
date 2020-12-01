@@ -34,9 +34,6 @@ public:
     // move operator
     OperatorOverload_my &operator=(OperatorOverload_my &&other);
 
-    // move constructor
-    OperatorOverload_my ( OperatorOverload_my &&other);
-
 };
 
 

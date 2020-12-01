@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <utility>
+#include <cstring>
 #include "OperatorOverload_my.h"
 
 using namespace std;
@@ -104,11 +105,4 @@ OperatorOverload_my &OperatorOverload_my::operator=(OperatorOverload_my &&other)
     return *this;
 }
 
-OperatorOverload_my::OperatorOverload_my(OperatorOverload_my &&other)
-        : str{other.str} {
-    other.str = nullptr;
-    cout << "using move constructor ... " << endl;
-}
-
-/// move constructor
 
