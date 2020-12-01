@@ -8,21 +8,22 @@
 using namespace std;
 
 
-SaveAccount::SaveAccount(double money_) : Account(money_), id{Account::get_id()} {
-    cout << "save account created id:" << id << endl;
+SaveAccount::SaveAccount() : id{get_id()} {
+    cout << "Save account :" << id << " created" << endl;
 }
 
-bool SaveAccount::add_money(double amount_) {
-    if (Account::get_money(amount_)) {
-        save_money_amount += amount_;
-        return true;
+void SaveAccount::s_deposite(double n) {
+    if (Account::withdraw(n)) {
+        save_account_money += n;
     } else {
-        cout << " cant do that on account have no money ! \n";
-        return false;
+        cout << "cant save money" << endl;
     }
-}
-
-void SaveAccount::show_money() {
-    cout << "SAVE vACCOUNT id: " << id << ", have an: " << save_money_amount << " money" << endl;
 
 }
+
+void SaveAccount::show() {
+    Account::show();
+    cout << "save acocunt " << save_account_money << "\n";
+}
+
+

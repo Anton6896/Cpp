@@ -23,6 +23,7 @@ using namespace std;
 #include "Operator_overload/OperatorOverload_my.h"
 #include "Inheritance_m/Person.h"
 
+
 /// declare testers
 //void operator_overload_my_tester();
 void inheritance_tester();
@@ -77,9 +78,10 @@ void operator_overload_my_tester() {
 
 void inheritance_tester() {
     cout << "________________  inheritance tester _________________" << endl;
-    Person p1("per1", 34, 2345, 400), p2;
-    p1.show_self();
-    p2.show_self();
+    SaveAccount sa1;
+    sa1.deposite(563);
+    sa1.s_deposite(56);
+    sa1.show();
 
 }
 

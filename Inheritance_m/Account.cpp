@@ -7,29 +7,28 @@
 
 using namespace std;
 
-Account::Account(double amount_)
-        : money_amount{amount_} {
-    id = ++counter_id;
+
+Account::Account() : id{++counter_id} {
+    cout << "account :" << id << " created" << endl;
+
 }
 
-void Account::show_money() {
-    cout << "account id: " << id << ", have an: " << money_amount << " money" << endl;
+void Account::deposite(double n) {
+    account_money += n;
 }
 
-Account::~Account() {
-    --counter_id;
-}
-
-void Account::add_money(double amount_) {
-    money_amount += amount_;
-}
-
-bool Account::get_money(double amount_) {
-    if (amount_ < money_amount) {
-        money_amount -= amount_;
+bool Account::withdraw(double n) {
+    if (account_money > n) {
+        account_money -= n;
         return true;
     } else {
-        cout << "no money" << endl;
+        cout << "account :: no money " << endl;
         return false;
     }
 }
+
+void Account::show() {
+    cout << "account show :: " << account_money << " \n";
+}
+
+

@@ -10,12 +10,15 @@
 
 class SaveAccount : public Account {
 private:
-    int id;  // same id as Account class
-    double save_money_amount;
+    int id;
+    double save_account_money;
 public:
-    SaveAccount(double money_ = 0.0);
-    bool add_money(double amount_ = 0.0);
-    void show_money();
+    SaveAccount();
+
+    void s_deposite(double n);
+
+    void show();
+
 };
 
 

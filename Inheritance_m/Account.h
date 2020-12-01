@@ -5,26 +5,26 @@
 #ifndef BASIC_ACCOUNT_H
 #define BASIC_ACCOUNT_H
 
+
 static int counter_id = 0;
 
 class Account {
 private:
     int id;
-    double money_amount;
+    double account_money;
 
 protected:
     int get_id() { return id; }
 
 public:
-    Account(double amount_ = 0);
+    Account();
 
-    ~Account();
+    void deposite(double n);
 
-    void add_money(double amount_ = 0.0);
+    bool withdraw(double n);
 
-    bool get_money(double amount_ = 0.0);
+    void show();
 
-    void show_money();
 };
 
 

@@ -22,7 +22,6 @@ protected:
 public:
     Person(std::string name_ = "empty", int age_ = 0, double salary_ = 0.0, double add = 0.0);
 
-    void show_self();
 
 };
 
