@@ -78,10 +78,10 @@ void operator_overload_my_tester() {
 
 void inheritance_tester() {
     cout << "________________  inheritance tester _________________" << endl;
-    SaveAccount sa1;
-    sa1.deposite(563);
-    sa1.s_deposite(56);
-    sa1.show();
+    Person p1;
+    p1.deposite(500);
+    p1.save_daposite(200);
+    p1.show();
 
 }
 

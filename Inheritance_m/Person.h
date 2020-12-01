@@ -14,14 +14,19 @@ private:
     std::string name;
     int age;
 
-    // for ech person create both
-    Account account;
-    SaveAccount save_account;
+    // the SaveAccount will create the main account for the person too
+    // so ech person will have an saving and primary
+    SaveAccount account;
 protected:
     double salary;
 public:
-    Person(std::string name_ = "empty", int age_ = 0, double salary_ = 0.0, double add = 0.0);
+    Person(std::string name_ = "empty", int age_ = 0, double salary_ = 0.0);
 
+    void deposite(double n);
+
+    void save_daposite(double n);
+
+    void show();
 
 };
 

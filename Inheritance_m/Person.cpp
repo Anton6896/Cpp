@@ -7,10 +7,22 @@
 
 using namespace std;
 
-Person::Person(std::string name_, int age_, double salary_, double add)
+Person::Person(std::string name_, int age_, double salary_)
         : name{move(name_)}, age(age_), salary{salary_} {
     cout << "person " << name << " created" << endl;
 
+}
+
+void Person::deposite(double n) {
+    account.deposite(n);
+}
+
+void Person::save_daposite(double n) {
+    account.s_deposite(n);
+}
+
+void Person::show() {
+    account.show();
 }
 
 
