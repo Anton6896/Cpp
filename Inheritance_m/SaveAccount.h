@@ -9,6 +9,7 @@
 
 
 class SaveAccount : public Account {
+    friend Account;
 private:
     int id;
     double save_account_money;

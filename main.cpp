@@ -22,6 +22,8 @@ using namespace std;
 
 #include "Operator_overload/OperatorOverload_my.h"
 #include "Inheritance_m/Person.h"
+#include "Inheritance_m/Base_1.h"
+#include "Inheritance_m/Derived_1.h"
 
 
 /// declare testers
@@ -78,10 +80,14 @@ void operator_overload_my_tester() {
 
 void inheritance_tester() {
     cout << "________________  inheritance tester _________________" << endl;
-    Person p1;
-    p1.deposite(500);
-    p1.save_daposite(200);
-    p1.show();
+//    Person p1;
+//    p1.deposite(500);
+//    p1.save_daposite(200);
+//    p1.show();
+
+    cout << "________________  base and derived tester _________________" << endl;
+//    Base_1 b1, b2(3);
+    Derived_1 d1, d2(5);
 
 }
 
