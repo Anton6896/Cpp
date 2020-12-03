@@ -10,6 +10,7 @@
 
 class SaveAccount : public Account {
     friend Account;
+    friend std::ostream &operator<<(std::ostream &os, SaveAccount &saveAccount);
 private:
     int id;
     double save_account_money;

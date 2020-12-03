@@ -7,11 +7,15 @@
 #define BASIC_ACCOUNT_H
 
 
-
+#include <ostream>
 
 static int counter_id = 0;
 
 class Account {
+
+    // python __str__ (works as pattern)
+    friend std::ostream &operator<<(std::ostream &os, const Account &account);
+
     friend class Foo;
 
 private:
@@ -29,6 +33,7 @@ public:
     bool withdraw(double n);
 
     void show();
+
 
 };
 

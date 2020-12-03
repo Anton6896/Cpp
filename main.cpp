@@ -87,7 +87,24 @@ void inheritance_tester() {
 
     cout << "________________  base and derived tester _________________" << endl;
 //    Base_1 b1, b2(3);
-    Derived_1 d1, d2(5);
+//    Derived_1 d1{100};
+//    Derived_1 d2{d1}, d3; // copy constructor
+//    d3 = d2;  // copy assignment
+
+
+//    Base_1 *obj = new Derived_1;
+//    obj->show(); // base obj called
+
+//    Account a1;
+//    a1.deposite(45);
+//    cout << a1;
+
+    SaveAccount s1, s2;
+    s1.deposite(45.7);
+    s1.s_deposite(23.5);
+    cout << s1 << s2;
+
+
 
 }
 

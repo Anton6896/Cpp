@@ -15,6 +15,9 @@ public:
     Derived_1();
     Derived_1(int num);
     ~Derived_1();
+    Derived_1(const Derived_1 &other);
+    Derived_1 &operator=(const Derived_1 &other);
+    void show();
 };
 
 

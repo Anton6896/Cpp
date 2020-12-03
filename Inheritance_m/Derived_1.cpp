@@ -21,6 +21,26 @@ Derived_1::Derived_1(int num)
 }
 
 Derived_1::~Derived_1() {
-    cout << "Derived:: destructor" << endl;
+    cout << " --- Derived:: destructor" << endl;
 
+}
+
+Derived_1::Derived_1(const Derived_1 &other)
+        : Base_1(other), double_number{other.double_number} {
+    cout << "Derived :: copy constructor that enable the base ! " << endl;
+}
+
+Derived_1 &Derived_1::operator=(const Derived_1 &other) {
+    if (this != &other) {
+        // init the base part of me
+        Base_1::operator=(other);
+        // init my self
+        double_number = other.double_number;
+        return *this;
+    }
+    return *this;
+}
+
+void Derived_1::show() {
+    cout << "Derived:: i am " << endl;
 }

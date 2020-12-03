@@ -8,8 +8,7 @@
 using namespace std;
 
 
-
-Account::Account() : id{++counter_id} {
+Account::Account() : id{++counter_id}, account_money{0.0} {
     cout << "account :" << id << " created" << endl;
 
 }
@@ -30,6 +29,11 @@ bool Account::withdraw(double n) {
 
 void Account::show() {
     cout << "account show :: " << account_money << " \n";
+}
+
+std::ostream &operator<<(std::ostream &os, const Account &account) {
+    os << "account balance : " << account.account_money << endl;
+    return os;
 }
 
 
