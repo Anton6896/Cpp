@@ -7,9 +7,8 @@
 
 using namespace std;
 
-Derived_1::Derived_1() {
+Derived_1::Derived_1() : double_number{0} {
     cout << "Derived:: constructor empty Derived" << endl;
-
 }
 
 /// for get involved the appropriate base

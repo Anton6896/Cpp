@@ -13,5 +13,6 @@ add_executable(
 
         Inheritance_m/Base_1.cpp Inheritance_m/Base_1.h
         Inheritance_m/Derived_1.cpp Inheritance_m/Derived_1.h
+        Inheritance_m/Acc_2.cpp Inheritance_m/Acc_2.h
 
-)
+        Inheritance_m/Save_Acc_2.cpp Inheritance_m/Save_Acc_2.h)

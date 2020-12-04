@@ -1,5 +1,9 @@
 #include <iostream>
 #include <chrono>
+#include <vector>
+#include <sstream>
+#include <random>
+
 
 using namespace std::chrono;
 using namespace std;
@@ -24,6 +28,8 @@ using namespace std;
 #include "Inheritance_m/Person.h"
 #include "Inheritance_m/Base_1.h"
 #include "Inheritance_m/Derived_1.h"
+#include "Inheritance_m/Acc_2.h"
+#include "Inheritance_m/Save_Acc_2.h"
 
 
 /// declare testers
@@ -99,11 +105,47 @@ void inheritance_tester() {
 //    a1.deposite(45);
 //    cout << a1;
 
-    SaveAccount s1;
-    s1.s_deposit(23.5);
-    s1.show();
+//    SaveAccount s1;
+//    s1.s_deposit(23.5);
+//    s1.show();
 
 
+    cout << "________________  end tester _________________" << endl;
+
+    vector<Acc_2 *> v1;
+
+    // create random double
+    double lower_bound = 3000;
+    double upper_bound = 10000;
+    uniform_real_distribution<double> unif(lower_bound, upper_bound);
+    default_random_engine re;
+
+    // fill vector for testing
+    for (int i = 0; i < 4; ++i) {
+        // string concat with standard library
+        std::stringstream sstm;
+        sstm << "acc num " << i;
+
+        double amount = unif(re);
+
+        v1.emplace_back(new Acc_2{sstm.str(), amount});
+
+        cout << *(v1.at(i));
+    }
+
+    cout << "\n withdrow ::\n";
+
+    // withdrow random data and show
+    for (auto *a : v1) {
+        cout << a->withdraw(345.65);
+        cout << *a;
+    }
+
+
+    // free mem
+    for (int i = 0; i < 4; ++i) {
+        delete v1.at(i);
+    }
 
 
 }
