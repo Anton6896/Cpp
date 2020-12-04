@@ -26,6 +26,7 @@ void SaveAccount::show() {
     cout << "save acocunt " << save_account_money << "\n";
 }
 
+// __str__
 ostream &operator<<(ostream &os, SaveAccount &saveAccount) {
     os << "save account id :" << saveAccount.id << ", have money : " << saveAccount.save_account_money << endl;
     return os;
