@@ -99,10 +99,10 @@ void inheritance_tester() {
 //    a1.deposite(45);
 //    cout << a1;
 
-    SaveAccount s1, s2;
-    s1.deposite(45.7);
-    s1.s_deposite(23.5);
-    cout << s1 << s2;
+    SaveAccount s1;
+    s1.s_deposit(23.5);
+    s1.show();
+
 
 
 
