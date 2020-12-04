@@ -34,6 +34,8 @@ public:
 
     void show();
 
+    double get_money() const { return account_money; }
+
 
 };
 

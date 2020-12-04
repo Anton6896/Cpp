@@ -10,14 +10,18 @@
 
 class SaveAccount : public Account {
     friend Account;
-    friend std::ostream &operator<<(std::ostream &os, SaveAccount &saveAccount);
+
+    friend std::ostream &operator<<
+            (std::ostream &os, SaveAccount &saveAccount);
+
 private:
     int id;
     double save_account_money;
+// save account will use account as variable
 public:
     SaveAccount();
 
-    void s_deposite(double n);
+    void s_deposit(double n);
 
     void show();
 

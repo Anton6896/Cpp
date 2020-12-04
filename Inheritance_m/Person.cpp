@@ -18,7 +18,7 @@ void Person::deposite(double n) {
 }
 
 void Person::save_daposite(double n) {
-    account.s_deposite(n);
+    account.s_deposit(n);
 }
 
 void Person::show() {
