@@ -1,3 +1,8 @@
+/*
+ * Clion working in this case must provide the main.cpp and
+ * the your classes.cpp to run together in CMakeList
+ *
+ * */
 #include <iostream>
 #include <chrono>
 #include <vector>
@@ -9,35 +14,24 @@ using namespace std::chrono;
 using namespace std;
 
 
-/// this is bad practice !!! but working ok
-//#include "first/hello.cpp"
-//#include "arr_and_vectors/arr_and_vec.cpp"
-//#include "flow/my_fl.cpp"
-//#include "string_my/str_my.cpp"
-//#include "func_in_cpp/func.cpp"
-//#include "pointer_my/pointer_main.cpp"
-//#include "oop_section/oop_main.cpp"
-//#include "Inheritance_m/in_main.cpp"
-//#include "Operator_overload/oo_1.cpp"
-
-/// this is how it must to be done
-// in this case must provide the main.cpp and
-// the your classes.cpp to run together in CMakeList
-
 #include "Operator_overload/OperatorOverload_my.h"
 #include "Inheritance_m/Person.h"
 #include "Inheritance_m/Base_1.h"
 #include "Inheritance_m/Derived_1.h"
 #include "Inheritance_m/Acc_2.h"
 #include "Inheritance_m/Save_Acc_2.h"
+#include "polymorphism_my/Base_pol.h"
+#include "polymorphism_my/Derived_pol.h"
 
 
 /// declare testers
 //void operator_overload_my_tester();
-void inheritance_tester();
+//void inheritance_tester();
+
+void polymorphism_tester();
 
 
-/// entry point
+/// entry point -----------------------------------------------------
 int main() {
     auto start = steady_clock::now();
     {
@@ -55,15 +49,31 @@ int main() {
 
 
 //    operator_overload_my_tester();
-    inheritance_tester();
+//    inheritance_tester();
+    polymorphism_tester();
 
 
-    auto end = steady_clock::now();
-    auto diff = end - start;
-    cout << "\n\nprogram duration : " <<
-         chrono::duration<double, milli>(diff).count() <<
-         " ms" << endl;
+    {
+        auto end = steady_clock::now();
+        auto diff = end - start;
+        cout << "\n\nprogram duration : " <<
+             chrono::duration<double, milli>(diff).count() <<
+             " ms" << endl;
+    }
+
     return 0;
+}
+
+void polymorphism_tester() {
+    cout << "polymorphism tester : --------------------------------\n";
+    {
+        Base_pol *b1 = new Derived_1;
+    }
+
+
+
+
+
 }
 
 void operator_overload_my_tester() {
@@ -149,4 +159,5 @@ void inheritance_tester() {
 
 
 }
+
 
