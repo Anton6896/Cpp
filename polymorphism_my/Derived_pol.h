@@ -10,7 +10,7 @@
 class Derived_pol : public Base_pol {
 public:
     void show_self() const; // not an virtual in purpose!
-    void one_for_all() override;
+    void one_for_all() override; // override instead of virtual
 };
 
 

@@ -12,6 +12,7 @@ class Derived_pol_2 : public Base_pol {
     /*!!
      * the override key
      * help to prevent REDEFINE the function !
+     * using instead of virtual key (more good) preventing the errors
      * */
     void show_dynamic() override;
 
