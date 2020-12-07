@@ -23,6 +23,8 @@ using namespace std;
 #include "polymorphism_my/Base_pol.h"
 #include "polymorphism_my/Derived_pol.h"
 #include "polymorphism_my/Derived_pol_2.h"
+#include "polymorphism_my/Shape_pol.h"
+#include "polymorphism_my/Triangle_pol.h"
 
 /// declare testers
 //void operator_overload_my_tester();
@@ -94,6 +96,10 @@ void polymorphism_tester() {
         delete a1;
         delete a2;
         delete a3;
+    }
+
+    {
+
     }
 
 
