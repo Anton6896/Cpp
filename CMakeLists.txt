@@ -21,7 +21,8 @@ add_executable(
         polymorphism_my/Derived_pol.cpp polymorphism_my/Derived_pol.h
         polymorphism_my/Derived_pol_2.cpp polymorphism_my/Derived_pol_2.h
 
-        polymorphism_my/Shape_pol.cpp polymorphism_my/Shape_pol.h
+#       abstract class Shape_pol
+        polymorphism_my/Shape_pol.h
         polymorphism_my/Triangle_pol.cpp polymorphism_my/Triangle_pol.h
 
 

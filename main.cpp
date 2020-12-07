@@ -98,8 +98,13 @@ void polymorphism_tester() {
         delete a3;
     }
 
-    {
 
+    // abstract class shape
+    {
+        Shape_pol *s1 = new Triangle_pol;
+        s1->draw();
+        s1->rotate();
+        delete s1;
     }
 
 
