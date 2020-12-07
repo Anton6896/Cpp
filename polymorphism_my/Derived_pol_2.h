@@ -8,8 +8,14 @@
 #include "Base_pol.h"
 
 class Derived_pol_2 : public Base_pol {
-    void show_dynamic();
 
+    /*!!
+     * the override key
+     * help to prevent REDEFINE the function !
+     * */
+    void show_dynamic() override;
+
+    void one_for_all() override;
 };
 
 

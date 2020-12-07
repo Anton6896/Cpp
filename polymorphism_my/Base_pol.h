@@ -15,7 +15,15 @@ public:
      * will use the function at the class that belongs to.
      * not from base class (will decide at the run time if any exist)
      * */
-    void virtual show_dynamic();
+    virtual void show_dynamic();
+
+    virtual void one_for_all();
+
+    /*!! very important
+     * if using virtual functions must provide virtual destructor  !!
+     * just declare and can leave it empty
+     * */
+    virtual ~Base_pol(){};
 };
 
 

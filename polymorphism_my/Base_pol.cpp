@@ -14,3 +14,7 @@ void Base_pol::show_self() const {
 void Base_pol::show_dynamic() {
     cout << "Base:: dynamic\n";
 }
+
+void Base_pol::one_for_all() {
+    cout << "\tBase:: one for all -\n";
+}

@@ -80,6 +80,20 @@ void polymorphism_tester() {
 
         delete b1;
         delete b3;
+
+
+        Base_pol *a1 = new Base_pol,
+                *a2 = new Derived_pol,
+                *a3 = new Derived_pol_2;
+        // for ech class his own implementation of same method!
+        a1->one_for_all();
+        a2->one_for_all();
+        a3->one_for_all();
+
+
+        delete a1;
+        delete a2;
+        delete a3;
     }
 
 
