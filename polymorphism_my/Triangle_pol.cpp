@@ -8,11 +8,11 @@
 using namespace std;
 
 void Triangle_pol::draw() {
-    cout << "Triangle :: draw \n";
+    cout << "Triangle :: draw triangle  \n";
 }
 
 void Triangle_pol::rotate() {
-    cout << "Triangle :: rotate \n";
+    cout << "Triangle :: rotate triangle  \n";
 }
 
 Triangle_pol::~Triangle_pol() {

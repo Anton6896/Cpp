@@ -32,6 +32,8 @@ using namespace std;
 
 void polymorphism_tester();
 
+void inner_poly_calls(vector<Base_pol *> &obj);
+
 
 /// entry point -----------------------------------------------------
 int main() {
@@ -66,6 +68,13 @@ int main() {
     return 0;
 }
 
+void inner_poly_calls(vector<Base_pol *> &obj) {
+    cout << "using an vector for all calls in one : \n";
+    for (const auto p : obj) {
+        p->one_for_all();
+    }
+}
+
 void polymorphism_tester() {
     cout << "polymorphism tester : --------------------------------\n";
     {
@@ -84,18 +93,18 @@ void polymorphism_tester() {
         delete b3;
 
 
-        Base_pol *a1 = new Base_pol,
-                *a2 = new Derived_pol,
-                *a3 = new Derived_pol_2;
-        // for ech class his own implementation of same method!
-        a1->one_for_all();
-        a2->one_for_all();
-        a3->one_for_all();
+        vector<Base_pol *> v1{
+                new Base_pol,
+                new Derived_pol,
+                new Derived_pol_2
+        };
+        // all have an same method with different implementation
+        inner_poly_calls(v1);
 
+        delete v1.at(0);
+        delete v1.at(1);
+        delete v1.at(2);
 
-        delete a1;
-        delete a2;
-        delete a3;
     }
 
 
