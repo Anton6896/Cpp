@@ -9,6 +9,13 @@
 class Base_pol {
 public:
     void show_self() const;
+
+    /*
+     * virtual functions (dynamic bindings)
+     * will use the function at the class that belongs to.
+     * not from base class (will decide at the run time if any exist)
+     * */
+    void virtual show_dynamic();
 };
 
 

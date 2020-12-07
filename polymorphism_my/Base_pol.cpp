@@ -10,3 +10,7 @@ using namespace std;
 void Base_pol::show_self() const {
     cout << "base class\n";
 }
+
+void Base_pol::show_dynamic() {
+    cout << "Base:: dynamic\n";
+}

@@ -22,7 +22,7 @@ using namespace std;
 #include "Inheritance_m/Save_Acc_2.h"
 #include "polymorphism_my/Base_pol.h"
 #include "polymorphism_my/Derived_pol.h"
-
+#include "polymorphism_my/Derived_pol_2.h"
 
 /// declare testers
 //void operator_overload_my_tester();
@@ -67,11 +67,20 @@ int main() {
 void polymorphism_tester() {
     cout << "polymorphism tester : --------------------------------\n";
     {
-        Base_pol *b1 = new Derived_1;
+        Base_pol *b1 = new Derived_pol,
+                b2,
+                *b3 = new Derived_pol_2;
+        // with static (as default) binding will return the Base::show_self()
+        b1->show_self();    // declared as derived
+        b2.show_self();     // base class
+
+
+        b3->show_dynamic(); // using dynamic bindings
+        b2.show_dynamic();  // from base class
+
+        delete b1;
+        delete b3;
     }
-
-
-
 
 
 }
