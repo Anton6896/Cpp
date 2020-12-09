@@ -36,7 +36,7 @@ void polymorphism_tester();
 
 void inner_poly_calls(vector<Base_pol *> &obj);
 
-void smart_tester();
+int smart_tester();
 
 
 /// main -----------------------------------------------------
@@ -74,19 +74,55 @@ int main() {
 }
 
 /// End main ------------------------------------------------------
-void smart_tester() {
-    // tester for smart pointers (unique pointer)
-    auto t1 = make_unique<Smart_Ptr_tester>(400);
-    auto t2 = make_unique<Smart_Ptr_tester>(500);
-    auto t3 = make_unique<Smart_Ptr_tester>();
-    t1->show();
+int smart_tester() {
+
+    cout << "\nunique pointers ++++++++++++++++++++++++++++\n";
+    {
+        // tester for smart pointers (unique pointer)
+        auto t1 = make_unique<Smart_Ptr_tester>(400);
+        auto t2 = make_unique<Smart_Ptr_tester>(500);
+        auto t3 = make_unique<Smart_Ptr_tester>();
+        t1->show();
 
 //    t3 = t2  error cand copy that
-    t3 = move(t2); // its ok
-    if (!t2) {
-        cout << "t2 is nullptr\n";
-    }
-    t3->show();
+        t3 = move(t2); // its ok
+        if (!t2) {
+            cout << "t2 is nullptr\n";
+        }
+        t3->show();
+
+//    using vectors
+        vector<unique_ptr<Base_pol>> vec;
+        vec.push_back(make_unique<Derived_pol>());
+        vec.push_back(make_unique<Derived_pol_2>());
+//    vec.at(0)->show_dynamic();
+//    vec.at(1)->show_dynamic();
+
+        for (auto const &obj : vec) {
+            obj->show_dynamic();
+        }
+    } // clear memory
+
+    cout << "\nshared pointers ++++++++++++++++++++++++++++\n";
+    {
+        auto s1 = make_shared<Smart_Ptr_tester>(100);
+        cout << "use count s1 : " << s1.use_count() << " \n";
+        shared_ptr<Smart_Ptr_tester> s2{s1};
+        cout << "use count s2{s1} -> s1: " << s1.use_count() << " \n";
+        cout << "use count s2: " << s2.use_count() << " \n";
+        s1.reset();
+        cout << "use count s1.reset() : " << s1.use_count() << " \n";
+        cout << "use count s2: " << s2.use_count() << " \n";
+
+
+
+
+
+
+    } // clear memory
+
+
+    return 0;
 }
 
 void inner_poly_calls(vector<Base_pol *> &obj) {
