@@ -13,9 +13,13 @@ std::ostream &operator<<(std::ostream &os, const Smart_Ptr_tester &smartPtrTeste
 }
 
 Smart_Ptr_tester::Smart_Ptr_tester(int data_) : data{data_} {
-    cout << "smart test constructor \n";
+    cout << "smart test constructor [" << data << "]\n";
 }
 
 Smart_Ptr_tester::~Smart_Ptr_tester() {
-    cout << "\tsmart test destructor \n";
+    cout << "\tsmart test destructor [" << data << "]\n";
+}
+
+void Smart_Ptr_tester::show() {
+    cout << "i am smart with data : [" << data << "]\n";
 }

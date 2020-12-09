@@ -75,8 +75,18 @@ int main() {
 
 /// End main ------------------------------------------------------
 void smart_tester() {
-    // tester for smart pointers
+    // tester for smart pointers (unique pointer)
+    auto t1 = make_unique<Smart_Ptr_tester>(400);
+    auto t2 = make_unique<Smart_Ptr_tester>(500);
+    auto t3 = make_unique<Smart_Ptr_tester>();
+    t1->show();
 
+//    t3 = t2  error cand copy that
+    t3 = move(t2); // its ok
+    if (!t2) {
+        cout << "t2 is nullptr\n";
+    }
+    t3->show();
 }
 
 void inner_poly_calls(vector<Base_pol *> &obj) {

@@ -16,6 +16,9 @@ public:
     explicit Smart_Ptr_tester(int data_ = 0);
 
     int get_data() const { return data; }
+
+    void show();
+
     ~Smart_Ptr_tester();
 };
 
