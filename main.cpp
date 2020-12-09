@@ -123,7 +123,7 @@ void inheritance_tester() {
     // fill vector for testing
     for (int i = 0; i < 4; ++i) {
         // string concat with standard library
-        std::stringstream sstm;
+        stringstream sstm;
         sstm << "acc num " << i;
 
         double amount = unif(re);
