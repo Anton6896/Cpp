@@ -26,4 +26,4 @@ add_executable(
         polymorphism_my/Triangle_pol.cpp polymorphism_my/Triangle_pol.h
 
 
-)
+        smart_ptr_my/Smart_Ptr_tester.cpp smart_ptr_my/Smart_Ptr_tester.h)

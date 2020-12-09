@@ -8,6 +8,7 @@
 #include <vector>
 #include <sstream>
 #include <random>
+#include <memory>
 
 
 using namespace std::chrono;
@@ -25,6 +26,7 @@ using namespace std;
 #include "polymorphism_my/Derived_pol_2.h"
 #include "polymorphism_my/Shape_pol.h"
 #include "polymorphism_my/Triangle_pol.h"
+#include "smart_ptr_my/Smart_Ptr_tester.h"
 
 /// declare testers
 //void operator_overload_my_tester();
@@ -34,8 +36,10 @@ void polymorphism_tester();
 
 void inner_poly_calls(vector<Base_pol *> &obj);
 
+void smart_tester();
 
-/// entry point -----------------------------------------------------
+
+/// main -----------------------------------------------------
 int main() {
     auto start = steady_clock::now();
     {
@@ -54,7 +58,8 @@ int main() {
 
 //    operator_overload_my_tester();
 //    inheritance_tester();
-    polymorphism_tester();
+//    polymorphism_tester();
+    smart_tester();
 
 
     {
@@ -66,6 +71,12 @@ int main() {
     }
 
     return 0;
+}
+
+/// End main ------------------------------------------------------
+void smart_tester() {
+    // tester for smart pointers
+
 }
 
 void inner_poly_calls(vector<Base_pol *> &obj) {
