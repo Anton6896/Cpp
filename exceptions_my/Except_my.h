@@ -12,6 +12,10 @@ private:
 public:
     // my functions for testing
     double calculate_kpl(int km=0, int l=1);
+    double calculate_kpl_cl(int km=0, int l=1);
+
+    // class exception
+    void zero_division_text() const;
 };
 
 

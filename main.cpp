@@ -80,7 +80,6 @@ int main() {
 /// End main ------------------------------------------------------
 
 void exception_tester() {
-    cout << "my exception tester\n";
 
 //    this class will have all function (for learning / testing )
 //    and will be costume exception as well
@@ -88,14 +87,27 @@ void exception_tester() {
 
     double km_per_l;
     try {
-        km_per_l = em.calculate_kpl(234, 0);
+        km_per_l = em.calculate_kpl(234, 3);
+        cout << "program end " << km_per_l << endl;
     } catch (int &ex) {
         cerr << "zero dividing !\n";
     } catch (string &ex) {
         cerr << ex << endl;
     }
 
-    cout << "program end " << km_per_l << endl;
+
+
+
+    // exception by classes
+    try {
+        km_per_l = em.calculate_kpl_cl(345, 0);
+        cout << "class exception ::" << km_per_l << endl;
+    } catch (const Except_my &ex) {
+        ex.zero_division_text();
+    }
+
+    cout << " -> continue program  \n";
+
 
 }
 
