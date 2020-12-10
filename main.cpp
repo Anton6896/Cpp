@@ -27,6 +27,7 @@ using namespace std;
 #include "polymorphism_my/Shape_pol.h"
 #include "polymorphism_my/Triangle_pol.h"
 #include "smart_ptr_my/Smart_Ptr_tester.h"
+#include "exceptions_my/Except_my.h"
 
 /// declare testers
 //void operator_overload_my_tester();
@@ -37,6 +38,8 @@ void polymorphism_tester();
 void inner_poly_calls(vector<Base_pol *> &obj);
 
 int smart_tester();
+
+void exception_tester();
 
 
 /// main -----------------------------------------------------
@@ -59,7 +62,8 @@ int main() {
 //    operator_overload_my_tester();
 //    inheritance_tester();
 //    polymorphism_tester();
-    smart_tester();
+//    smart_tester();
+    exception_tester();
 
 
     {
@@ -74,6 +78,12 @@ int main() {
 }
 
 /// End main ------------------------------------------------------
+
+void exception_tester(){
+    cout << "my exception tester\n";
+};
+
+
 int smart_tester() {
 
     cout << "\nunique pointers ++++++++++++++++++++++++++++\n";
