@@ -105,20 +105,31 @@ int smart_tester() {
 
     cout << "\nshared pointers ++++++++++++++++++++++++++++\n";
     {
+        // this is the way the Python is using his objects
+
         auto s1 = make_shared<Smart_Ptr_tester>(100);
         cout << "use count s1 : " << s1.use_count() << " \n";
-        shared_ptr<Smart_Ptr_tester> s2{s1};
+        shared_ptr<Smart_Ptr_tester> s2{s1}; //!! can't do that in unique !!
         cout << "use count s2{s1} -> s1: " << s1.use_count() << " \n";
         cout << "use count s2: " << s2.use_count() << " \n";
         s1.reset();
         cout << "use count s1.reset() : " << s1.use_count() << " \n";
         cout << "use count s2: " << s2.use_count() << " \n";
 
+        cout << "\nderived classes with shared pointers : \n";
+        shared_ptr<Base_pol> b1 = make_shared<Derived_pol_2>();
+        shared_ptr<Base_pol> b2 = make_shared<Derived_pol>();
+        b1->show_dynamic();
+        b2->show_dynamic();
 
-
-
-
-
+        vector<shared_ptr<Base_pol>> vec_shared;
+        vec_shared.push_back(make_shared<Derived_pol>());
+        vec_shared.push_back(make_shared<Derived_pol_2>());
+        cout << "\nlook form the vector :\n";
+        for (auto const &obj : vec_shared){
+            obj->show_dynamic();
+        }
+        
     } // clear memory
 
 
