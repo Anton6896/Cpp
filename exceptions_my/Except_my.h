@@ -7,7 +7,11 @@
 
 
 class Except_my {
+private:
 
+public:
+    // my functions for testing
+    double calculate_kpl(int km=0, int l=1);
 };
 
 

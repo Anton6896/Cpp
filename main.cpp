@@ -79,9 +79,25 @@ int main() {
 
 /// End main ------------------------------------------------------
 
-void exception_tester(){
+void exception_tester() {
     cout << "my exception tester\n";
-};
+
+//    this class will have all function (for learning / testing )
+//    and will be costume exception as well
+    Except_my em;
+
+    double km_per_l;
+    try {
+        km_per_l = em.calculate_kpl(234, 0);
+    } catch (int &ex) {
+        cerr << "zero dividing !\n";
+    } catch (string &ex) {
+        cerr << ex << endl;
+    }
+
+    cout << "program end " << km_per_l << endl;
+
+}
 
 
 int smart_tester() {
@@ -136,10 +152,10 @@ int smart_tester() {
         vec_shared.push_back(make_shared<Derived_pol>());
         vec_shared.push_back(make_shared<Derived_pol_2>());
         cout << "\nlook form the vector :\n";
-        for (auto const &obj : vec_shared){
+        for (auto const &obj : vec_shared) {
             obj->show_dynamic();
         }
-        
+
     } // clear memory
 
 
